@@ -9,6 +9,13 @@ dotenv.config()
 
 const PORT = process.env.PORT
 
+app.use(express.static("public"))
+
+app.get('/', (req, res) => {
+    res.send("root")
+})
+
+
 app.get('/bottle', (req, res) => {
     const img = "/Users/vm/boca-code/week3/express-one-more-time/images/yano.gif"
     res.sendFile(img)
@@ -17,6 +24,7 @@ app.get('/bottle', (req, res) => {
 app.get('/redirect', (req, res) => {
     res.redirect("https://apple.com")
 })
+
 
 //serve images dir
 // app.use('images',express.static('images'))
